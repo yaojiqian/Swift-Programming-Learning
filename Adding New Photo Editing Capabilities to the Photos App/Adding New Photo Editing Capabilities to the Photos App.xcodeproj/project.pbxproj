@@ -1,0 +1,470 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0BEEC1FE1EDEE6A20065FAC0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEEC1FD1EDEE6A20065FAC0 /* AppDelegate.swift */; };
+		0BEEC2001EDEE6A20065FAC0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEEC1FF1EDEE6A20065FAC0 /* ViewController.swift */; };
+		0BEEC2031EDEE6A20065FAC0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BEEC2011EDEE6A20065FAC0 /* Main.storyboard */; };
+		0BEEC2051EDEE6A20065FAC0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0BEEC2041EDEE6A20065FAC0 /* Assets.xcassets */; };
+		0BEEC2081EDEE6A20065FAC0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BEEC2061EDEE6A20065FAC0 /* LaunchScreen.storyboard */; };
+		0BEEC2161EDEE7760065FAC0 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BEEC2151EDEE7760065FAC0 /* PhotosUI.framework */; };
+		0BEEC2181EDEE7760065FAC0 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BEEC2171EDEE7760065FAC0 /* Photos.framework */; };
+		0BEEC21B1EDEE7760065FAC0 /* PhotoEditingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BEEC21A1EDEE7760065FAC0 /* PhotoEditingViewController.swift */; };
+		0BEEC21E1EDEE7760065FAC0 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BEEC21C1EDEE7760065FAC0 /* MainInterface.storyboard */; };
+		0BEEC2221EDEE7760065FAC0 /* Photo Editing Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 0BEEC2131EDEE7760065FAC0 /* Photo Editing Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		0BEEC2201EDEE7760065FAC0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 0BEEC1F21EDEE6A20065FAC0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 0BEEC2121EDEE7760065FAC0;
+			remoteInfo = "Photo Editing Extension";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0BEEC2261EDEE7760065FAC0 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				0BEEC2221EDEE7760065FAC0 /* Photo Editing Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		0BEEC1FA1EDEE6A20065FAC0 /* Adding New Photo Editing Capabilities to the Photos App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Adding New Photo Editing Capabilities to the Photos App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BEEC1FD1EDEE6A20065FAC0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		0BEEC1FF1EDEE6A20065FAC0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0BEEC2021EDEE6A20065FAC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0BEEC2041EDEE6A20065FAC0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0BEEC2071EDEE6A20065FAC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0BEEC2091EDEE6A20065FAC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0BEEC2131EDEE7760065FAC0 /* Photo Editing Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Photo Editing Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0BEEC2151EDEE7760065FAC0 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
+		0BEEC2171EDEE7760065FAC0 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		0BEEC21A1EDEE7760065FAC0 /* PhotoEditingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoEditingViewController.swift; sourceTree = "<group>"; };
+		0BEEC21D1EDEE7760065FAC0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
+		0BEEC21F1EDEE7760065FAC0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0BEEC1F71EDEE6A20065FAC0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0BEEC2101EDEE7760065FAC0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BEEC2161EDEE7760065FAC0 /* PhotosUI.framework in Frameworks */,
+				0BEEC2181EDEE7760065FAC0 /* Photos.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0BEEC1F11EDEE6A20065FAC0 = {
+			isa = PBXGroup;
+			children = (
+				0BEEC1FC1EDEE6A20065FAC0 /* Adding New Photo Editing Capabilities to the Photos App */,
+				0BEEC2191EDEE7760065FAC0 /* Photo Editing Extension */,
+				0BEEC2141EDEE7760065FAC0 /* Frameworks */,
+				0BEEC1FB1EDEE6A20065FAC0 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		0BEEC1FB1EDEE6A20065FAC0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				0BEEC1FA1EDEE6A20065FAC0 /* Adding New Photo Editing Capabilities to the Photos App.app */,
+				0BEEC2131EDEE7760065FAC0 /* Photo Editing Extension.appex */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		0BEEC1FC1EDEE6A20065FAC0 /* Adding New Photo Editing Capabilities to the Photos App */ = {
+			isa = PBXGroup;
+			children = (
+				0BEEC1FD1EDEE6A20065FAC0 /* AppDelegate.swift */,
+				0BEEC1FF1EDEE6A20065FAC0 /* ViewController.swift */,
+				0BEEC2011EDEE6A20065FAC0 /* Main.storyboard */,
+				0BEEC2041EDEE6A20065FAC0 /* Assets.xcassets */,
+				0BEEC2061EDEE6A20065FAC0 /* LaunchScreen.storyboard */,
+				0BEEC2091EDEE6A20065FAC0 /* Info.plist */,
+			);
+			path = "Adding New Photo Editing Capabilities to the Photos App";
+			sourceTree = "<group>";
+		};
+		0BEEC2141EDEE7760065FAC0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0BEEC2151EDEE7760065FAC0 /* PhotosUI.framework */,
+				0BEEC2171EDEE7760065FAC0 /* Photos.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		0BEEC2191EDEE7760065FAC0 /* Photo Editing Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0BEEC21A1EDEE7760065FAC0 /* PhotoEditingViewController.swift */,
+				0BEEC21C1EDEE7760065FAC0 /* MainInterface.storyboard */,
+				0BEEC21F1EDEE7760065FAC0 /* Info.plist */,
+			);
+			path = "Photo Editing Extension";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		0BEEC1F91EDEE6A20065FAC0 /* Adding New Photo Editing Capabilities to the Photos App */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0BEEC20C1EDEE6A20065FAC0 /* Build configuration list for PBXNativeTarget "Adding New Photo Editing Capabilities to the Photos App" */;
+			buildPhases = (
+				0BEEC1F61EDEE6A20065FAC0 /* Sources */,
+				0BEEC1F71EDEE6A20065FAC0 /* Frameworks */,
+				0BEEC1F81EDEE6A20065FAC0 /* Resources */,
+				0BEEC2261EDEE7760065FAC0 /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				0BEEC2211EDEE7760065FAC0 /* PBXTargetDependency */,
+			);
+			name = "Adding New Photo Editing Capabilities to the Photos App";
+			productName = "Adding New Photo Editing Capabilities to the Photos App";
+			productReference = 0BEEC1FA1EDEE6A20065FAC0 /* Adding New Photo Editing Capabilities to the Photos App.app */;
+			productType = "com.apple.product-type.application";
+		};
+		0BEEC2121EDEE7760065FAC0 /* Photo Editing Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0BEEC2231EDEE7760065FAC0 /* Build configuration list for PBXNativeTarget "Photo Editing Extension" */;
+			buildPhases = (
+				0BEEC20F1EDEE7760065FAC0 /* Sources */,
+				0BEEC2101EDEE7760065FAC0 /* Frameworks */,
+				0BEEC2111EDEE7760065FAC0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Photo Editing Extension";
+			productName = "Photo Editing Extension";
+			productReference = 0BEEC2131EDEE7760065FAC0 /* Photo Editing Extension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		0BEEC1F21EDEE6A20065FAC0 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "BigBit Corp.";
+				TargetAttributes = {
+					0BEEC1F91EDEE6A20065FAC0 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = NXGCE744W4;
+						ProvisioningStyle = Automatic;
+					};
+					0BEEC2121EDEE7760065FAC0 = {
+						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = NXGCE744W4;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 0BEEC1F51EDEE6A20065FAC0 /* Build configuration list for PBXProject "Adding New Photo Editing Capabilities to the Photos App" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 0BEEC1F11EDEE6A20065FAC0;
+			productRefGroup = 0BEEC1FB1EDEE6A20065FAC0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				0BEEC1F91EDEE6A20065FAC0 /* Adding New Photo Editing Capabilities to the Photos App */,
+				0BEEC2121EDEE7760065FAC0 /* Photo Editing Extension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		0BEEC1F81EDEE6A20065FAC0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BEEC2081EDEE6A20065FAC0 /* LaunchScreen.storyboard in Resources */,
+				0BEEC2051EDEE6A20065FAC0 /* Assets.xcassets in Resources */,
+				0BEEC2031EDEE6A20065FAC0 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0BEEC2111EDEE7760065FAC0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BEEC21E1EDEE7760065FAC0 /* MainInterface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		0BEEC1F61EDEE6A20065FAC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BEEC2001EDEE6A20065FAC0 /* ViewController.swift in Sources */,
+				0BEEC1FE1EDEE6A20065FAC0 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		0BEEC20F1EDEE7760065FAC0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0BEEC21B1EDEE7760065FAC0 /* PhotoEditingViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0BEEC2211EDEE7760065FAC0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 0BEEC2121EDEE7760065FAC0 /* Photo Editing Extension */;
+			targetProxy = 0BEEC2201EDEE7760065FAC0 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		0BEEC2011EDEE6A20065FAC0 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0BEEC2021EDEE6A20065FAC0 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0BEEC2061EDEE6A20065FAC0 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0BEEC2071EDEE6A20065FAC0 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		0BEEC21C1EDEE7760065FAC0 /* MainInterface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0BEEC21D1EDEE7760065FAC0 /* Base */,
+			);
+			name = MainInterface.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		0BEEC20A1EDEE6A20065FAC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		0BEEC20B1EDEE6A20065FAC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		0BEEC20D1EDEE6A20065FAC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = NXGCE744W4;
+				INFOPLIST_FILE = "Adding New Photo Editing Capabilities to the Photos App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BigBit.Adding-New-Photo-Editing-Capabilities-to-the-Photos-App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		0BEEC20E1EDEE6A20065FAC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = NXGCE744W4;
+				INFOPLIST_FILE = "Adding New Photo Editing Capabilities to the Photos App/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BigBit.Adding-New-Photo-Editing-Capabilities-to-the-Photos-App";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		0BEEC2241EDEE7760065FAC0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = NXGCE744W4;
+				INFOPLIST_FILE = "Photo Editing Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BigBit.Adding-New-Photo-Editing-Capabilities-to-the-Photos-App.Photo-Editing-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		0BEEC2251EDEE7760065FAC0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = NXGCE744W4;
+				INFOPLIST_FILE = "Photo Editing Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.BigBit.Adding-New-Photo-Editing-Capabilities-to-the-Photos-App.Photo-Editing-Extension";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		0BEEC1F51EDEE6A20065FAC0 /* Build configuration list for PBXProject "Adding New Photo Editing Capabilities to the Photos App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0BEEC20A1EDEE6A20065FAC0 /* Debug */,
+				0BEEC20B1EDEE6A20065FAC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		0BEEC20C1EDEE6A20065FAC0 /* Build configuration list for PBXNativeTarget "Adding New Photo Editing Capabilities to the Photos App" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0BEEC20D1EDEE6A20065FAC0 /* Debug */,
+				0BEEC20E1EDEE6A20065FAC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		0BEEC2231EDEE7760065FAC0 /* Build configuration list for PBXNativeTarget "Photo Editing Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0BEEC2241EDEE7760065FAC0 /* Debug */,
+				0BEEC2251EDEE7760065FAC0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 0BEEC1F21EDEE6A20065FAC0 /* Project object */;
+}
