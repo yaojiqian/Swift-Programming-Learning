@@ -1,0 +1,14 @@
+
+
+TextField 有两个属性，rightView和leftView。可以在TextFiled的后部和前部显示。
+textField.rightView = textFieldRightLabel
+textField.rightViewMode = .always
+像这样可以把一个Label赋值给TextField的rightView。
+
+NSHealthUpdateUsageDescription
+NSHealthShareUsageDescription
+
+HKSampleQuery定义一个query
+调用HKHealthStore的executeQuery，参数为query。
+
+HKHealthStore的save,可以用来保存数据。
