@@ -14,3 +14,10 @@ HKSampleQuery定义一个query
 HKHealthStore的save,可以用来保存数据。
 
 read height information.
+
+
+Issue:
+no rule to process file '/Users/yaojiqian/Documents/Swift-Programming-Learning/Retrieving and Modifying the User’s Weight Information/Retrieving and Modifying the User’s Weight Information/README.md' of type text for architecture x86_64
+Solustion:
+remove README.md from product Retrieving and Modifying the User's Weight Information
+

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0B3D78571EF208BC00302141 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0B3D78561EF208BC00302141 /* HealthKit.framework */; };
-		0B3D785A1EF2AB8A00302141 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = 0B3D78591EF2AB8A00302141 /* README.md */; };
 		0BAFB0111EF1868400605517 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAFB0101EF1868400605517 /* AppDelegate.swift */; };
 		0BAFB0131EF1868400605517 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BAFB0121EF1868400605517 /* ViewController.swift */; };
 		0BAFB0161EF1868400605517 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0BAFB0141EF1868400605517 /* Main.storyboard */; };
@@ -19,7 +18,7 @@
 /* Begin PBXFileReference section */
 		0B3D78561EF208BC00302141 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		0B3D78581EF208BC00302141 /* Retrieving and Modifying the User’s Weight Information.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Retrieving and Modifying the User’s Weight Information.entitlements"; sourceTree = "<group>"; };
-		0B3D78591EF2AB8A00302141 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		0B3D78591EF2AB8A00302141 /* README.md */ = {isa = PBXFileReference; explicitFileType = text; fileEncoding = 4; path = README.md; sourceTree = "<group>"; };
 		0BAFB00D1EF1868400605517 /* Retrieving and Modifying the User’s Weight Information.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Retrieving and Modifying the User’s Weight Information.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BAFB0101EF1868400605517 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0BAFB0121EF1868400605517 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -159,7 +158,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0B3D785A1EF2AB8A00302141 /* README.md in Sources */,
 				0BAFB0131EF1868400605517 /* ViewController.swift in Sources */,
 				0BAFB0111EF1868400605517 /* AppDelegate.swift in Sources */,
 			);
