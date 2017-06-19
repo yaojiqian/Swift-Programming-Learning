@@ -9,18 +9,63 @@
 import UIKit
 import HealthKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    enum HeightUnits : String {
+        case Millimeters = "Millimeters"
+        case Centimeters = "Centimeters"
+        case Meters = "Meters"
+        case Inches = "Inches"
+        case Feet = "Feet"
+        
+        static let allValues = [Millimeters, Centimeters, Meters, Inches, Feet]
+        
+        func healthKitUnit() -> HKUnit{
+            switch self{
+            case .Millimeters:
+                return HKUnit.meterUnit(with: .milli)
+            case .Centimeters:
+                return HKUnit.meterUnit(with: .centi)
+            case .Meters:
+                return HKUnit.meter()
+            case .Inches:
+                return HKUnit.inch()
+            case .Feet:
+                return HKUnit.foot()
+            }
+        }
+    }
+    
+    struct TableViewInfo{
+        static let cellIdentifier = "Cell"
+    }
 
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var heightTextField: UITextField!
+   
     /* This is a label that shows the user's weight unit (Kilograms) on the righthand side of our text field */
     let textFieldRightLabel = UILabel(frame: CGRect.zero)
     
     let weightQuantityType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!
     
     lazy var types : Set<HKQuantityType> = {
-        return [self.weightQuantityType]
+        return [self.weightQuantityType, self.heightQuantityType]
     }()
+    
+    
+    /* The currently selected height unit */
+    var heightUnit : HeightUnits = .Millimeters{
+        willSet{
+            readHeightInformation()
+        }
+    }
+    
+    /* Keep track of which index path is tapped so that we can put a checkmark next to it */
+    var selectedPath = IndexPath(row: 0, section: 0)
+    
+    let heightQuantityType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.height)!
     
     lazy var healthStore = HKHealthStore()
     
@@ -28,6 +73,8 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         textField.rightView = textFieldRightLabel
         textField.rightViewMode = .always
+        
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: TableViewInfo.cellIdentifier)
     }
 
     override func viewDidAppear(_ animated: Bool) {
@@ -43,6 +90,7 @@ class ViewController: UIViewController {
                 let strongSelf = self!
                 if successed && error == nil{
                     DispatchQueue.main.async(execute: strongSelf.readWeightInformation)
+                    DispatchQueue.main.async(execute: strongSelf.readHeightInformation)
                 } else {
                     if let theError = error{
                         print("Error occurred = \(theError)")
@@ -110,6 +158,66 @@ class ViewController: UIViewController {
         
         healthStore.execute(query)
     }
-
+    
+    func readHeightInformation(){
+        
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierEndDate, ascending: false)
+        
+        let query = HKSampleQuery(sampleType: heightQuantityType, predicate: nil, limit: 1, sortDescriptors: [sortDescriptor], resultsHandler: {[weak self]
+            (query: HKSampleQuery, results : [HKSample]?, error : Error?) in
+            
+            let strongSelf = self
+            if(results?.count)! > 0 {
+                /* We really have only one sample */
+                let sample = results?[0] as! HKQuantitySample
+                /* Get the height in currently selected unit */
+                let currentSelectedUnit = strongSelf?.heightUnit.healthKitUnit()
+                
+                let heightInUnit = sample.quantity.doubleValue(for: currentSelectedUnit!)
+                DispatchQueue.main.async {
+                    /* And finally set the text field's value to the user's height */
+                    let heightFormattedAsString = NumberFormatter.localizedString(from: NSNumber(value : heightInUnit), number: .decimal)
+                    
+                    strongSelf?.heightTextField.text = heightFormattedAsString
+                }
+            } else {
+                print("Could not read the user's height ")
+                print("or no height data was available")
+            }
+        })
+        healthStore.execute(query)
+    }
+    
+    /* Functions for TableView */
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return HeightUnits.allValues.count
+    }
+    
+    /* If a new cell is selected, show the selection only for that cell and remove the selection from the previously-selected cell */
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let previouslySelectedIndexPath = selectedPath
+        selectedPath = indexPath
+        
+        tableView.reloadRows(at: [previouslySelectedIndexPath , selectedPath], with: .automatic)
+        
+        self.heightUnit = HeightUnits.allValues[selectedPath.row]
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: TableViewInfo.cellIdentifier, for: indexPath) as UITableViewCell
+        
+        let heightUnit = HeightUnits.allValues[indexPath.row]
+        cell.textLabel?.text = heightUnit.rawValue
+        
+        if indexPath == selectedPath{
+            cell.accessoryType = .checkmark
+        }else {
+            cell.accessoryType = .none
+        }
+        
+        return cell
+    }
 }
 

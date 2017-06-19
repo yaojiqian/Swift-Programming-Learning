@@ -12,3 +12,5 @@ HKSampleQuery定义一个query
 调用HKHealthStore的executeQuery，参数为query。
 
 HKHealthStore的save,可以用来保存数据。
+
+read height information.
