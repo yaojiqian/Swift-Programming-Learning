@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Retrieving_and_Modifying_the_User_s_Weight_Information" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController restorationIdentifier="Retrieving_Modifying_Health_Restoration" id="BYZ-38-t0r" customClass="ViewController" customModule="Retrieving_and_Modifying_the_User_s_Weight_Information" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>

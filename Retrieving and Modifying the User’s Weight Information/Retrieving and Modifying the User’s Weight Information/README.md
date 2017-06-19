@@ -21,3 +21,13 @@ no rule to process file '/Users/yaojiqian/Documents/Swift-Programming-Learning/R
 Solustion:
 remove README.md from product Retrieving and Modifying the User's Weight Information
 
+尝试添加Retoration，但是似乎没有成功。
+已经改了：AppDelegate：
+        application _ application: shouldSaveApplicationState
+        application _ application: shouldRestoreApplicationState
+ViewController：
+    override func encodeRestorableState(with coder: NSCoder)
+    override func decodeRestorableState(with coder: NSCoder)
+ViewController也已经设置的Restoraction ID
+
+

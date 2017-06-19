@@ -110,7 +110,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 let strongSelf = self!
                 if successed && error == nil{
                     DispatchQueue.main.async(execute: strongSelf.readWeightInformation)
-                    DispatchQueue.main.async(execute: strongSelf.readHeightInformation)
+                    //DispatchQueue.main.async(execute: strongSelf.readHeightInformation)
                 } else {
                     if let theError = error{
                         print("Error occurred = \(theError)")
@@ -155,6 +155,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             }
         })
     }
+    
+    /* we will save the currently selected unit and the current index path into the state restoration */
+    override func encodeRestorableState(with coder: NSCoder) {
+        super.encodeRestorableState(with: coder)
+        
+        coder.encode(selectedPath, forKey: "SelectedPath")
+        coder.encode(heightUnit.rawValue, forKey: "HeightUnit")
+    }
+    
+    override func decodeRestorableState(with coder: NSCoder) {
+        super.decodeRestorableState(with: coder)
+        
+        selectedPath = coder.decodeObject(forKey: "SelectedPath") as! IndexPath
+        if let newHeightUnit = HeightUnits(rawValue: coder.decodeObject(forKey: "HeightUnit") as! String) {
+            heightUnit = newHeightUnit
+        }
+    }
+    
     
     func readWeightInformation(){
         
