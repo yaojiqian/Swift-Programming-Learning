@@ -34,6 +34,21 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 return HKUnit.foot()
             }
         }
+        
+        func heightAbbreviation() -> String{
+            switch self{
+            case .Millimeters:
+                return "mm"
+            case .Centimeters:
+                return "cm"
+            case .Meters:
+                return "m"
+            case .Feet:
+                return "ft"
+            case .Inches:
+                return "in"
+            }
+        }
     }
     
     struct TableViewInfo{
@@ -47,6 +62,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
    
     /* This is a label that shows the user's weight unit (Kilograms) on the righthand side of our text field */
     let textFieldRightLabel = UILabel(frame: CGRect.zero)
+    
+    let heightRightLabel = UILabel(frame: CGRect.zero)
     
     let weightQuantityType = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.bodyMass)!
     
@@ -73,6 +90,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.viewDidLoad()
         textField.rightView = textFieldRightLabel
         textField.rightViewMode = .always
+        
+        heightTextField.rightView = heightRightLabel
+        heightTextField.rightViewMode = .always
         
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: TableViewInfo.cellIdentifier)
     }
@@ -118,6 +138,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 print("Failed to save the user's weight")
             }
         } )
+    }
+    
+    @IBAction func saveUserHeight(_ sender: UIButton) {
+        
+        let heightKitUnit = self.heightUnit.healthKitUnit()
+        let heightQuantity = HKQuantity(unit: heightKitUnit, doubleValue: (heightTextField.text! as NSString).doubleValue)
+        let now = Date()
+        let sample = HKQuantitySample(type:heightQuantityType, quantity: heightQuantity, start: now, end: now)
+        
+        healthStore.save(sample, withCompletion:  { (success : Bool, error :Error?) in
+            if success {
+                print("Successfully saved the user's height.")
+            } else {
+                print("Failed to save the user's height.")
+            }
+        })
     }
     
     func readWeightInformation(){
@@ -166,19 +202,22 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let query = HKSampleQuery(sampleType: heightQuantityType, predicate: nil, limit: 1, sortDescriptors: [sortDescriptor], resultsHandler: {[weak self]
             (query: HKSampleQuery, results : [HKSample]?, error : Error?) in
             
-            let strongSelf = self
+            let strongSelf = self!
             if(results?.count)! > 0 {
                 /* We really have only one sample */
                 let sample = results?[0] as! HKQuantitySample
                 /* Get the height in currently selected unit */
-                let currentSelectedUnit = strongSelf?.heightUnit.healthKitUnit()
+                let currentSelectedUnit = strongSelf.heightUnit.healthKitUnit()
                 
-                let heightInUnit = sample.quantity.doubleValue(for: currentSelectedUnit!)
+                
+                let heightInUnit = sample.quantity.doubleValue(for: currentSelectedUnit)
                 DispatchQueue.main.async {
                     /* And finally set the text field's value to the user's height */
                     let heightFormattedAsString = NumberFormatter.localizedString(from: NSNumber(value : heightInUnit), number: .decimal)
                     
-                    strongSelf?.heightTextField.text = heightFormattedAsString
+                    strongSelf.heightTextField.text = heightFormattedAsString
+                    strongSelf.heightRightLabel.text = strongSelf.heightUnit.heightAbbreviation()
+                    strongSelf.heightRightLabel.sizeToFit()
                 }
             } else {
                 print("Could not read the user's height ")
