@@ -45,7 +45,7 @@ class ViewController: UIViewController {
     func createAnimatorAndBehavior(){
         animator = UIDynamicAnimator(referenceView: view)
         
-        let collision = UICollisionBehavior(items: [squareView!, anchorView!])
+        let collision = UICollisionBehavior(items: [squareView!])
         collision.translatesReferenceBoundsIntoBoundary = true
         
         attachmentBehavior = UIAttachmentBehavior(item: squareView!, offsetFromCenter: UIOffset(horizontal: 30, vertical: -40) , attachedToAnchor: anchorView!.center)
@@ -55,7 +55,9 @@ class ViewController: UIViewController {
     }
     
     func handlePan(pan : UIPanGestureRecognizer){
+        
         let tapPoint = pan.location(in: view)
+        //print("tapPoint:(\(tapPoint.x), \(tapPoint.y))")
         attachmentBehavior!.anchorPoint = tapPoint
         anchorView!.center = tapPoint
     }
