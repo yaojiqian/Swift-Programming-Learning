@@ -26,3 +26,7 @@ elasticity, friction, density, allowRotation, resistance…
 ## Table View
 
 ### Populating a TableView with Data
+Implement TableViewSource class conform the UITableViewDataSource protocol.
+numberOfSections returns the total sections of the table view.
+tableView:numberOfRowsInSection returns the count of the rows for each section.
+tableView:cellForRowAt creates tableview cell using tableview’s dequeueReusableCell method. And give the title.
