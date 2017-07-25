@@ -23,6 +23,6 @@ Here the item of the UIAttachmentBehavior is the item which will follow the atta
 elasticity, friction, density, allowRotation, resistance…
 
 
-##Table View
+## Table View
 
-###Populating a TableView with Data
+### Populating a TableView with Data
