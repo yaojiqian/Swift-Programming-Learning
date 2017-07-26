@@ -30,3 +30,10 @@ Implement TableViewSource class conform the UITableViewDataSource protocol.
 numberOfSections returns the total sections of the table view.
 tableView:numberOfRowsInSection returns the count of the rows for each section.
 tableView:cellForRowAt creates tableview cell using tableview’s dequeueReusableCell method. And give the title.
+
+### Enabling Swipe Deletion of Table View Cells
+Implement UITableViewDelegate on ViewController.
+	tableView:editiingSytleForRowAt
+override Viewcontroller’s setEditing:animated, call tableView’s setEditing:animated
+
+TableViewDataSource, add UITableViewDatasource’s tableView:commit:forRowAt to remove the row from the data source.
