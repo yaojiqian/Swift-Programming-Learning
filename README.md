@@ -42,3 +42,10 @@ TableViewDataSource, add UITableViewDatasource’s tableView:commit:forRowAt to 
 tableView:viewForHeaderInSection
 tableView:viewForFooterInSection
 tableView:heightForHeaderInSection
+
+### Displaying a Refresh Control for Table Views
+class UIRefreshControl : UIControl
+Description	
+A UIRefreshControl object provides a standard control that can be used to initiate the refreshing of a table view’s contents. You link a refresh control to a table through an associated table view controller object. The table view controller handles the work of adding the control to the table’s visual appearance and managing the display of that control in response to appropriate user gestures.
+Note
+Because the refresh control is specifically designed for use in a table view that's managed by a table view controller, using it in a different context can result in undefined behavior.
