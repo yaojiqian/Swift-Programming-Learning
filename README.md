@@ -37,3 +37,8 @@ Implement UITableViewDelegate on ViewController.
 override Viewcontroller’s setEditing:animated, call tableView’s setEditing:animated
 
 TableViewDataSource, add UITableViewDatasource’s tableView:commit:forRowAt to remove the row from the data source.
+
+### Constructing Headers and Footers in Table Views
+tableView:viewForHeaderInSection
+tableView:viewForFooterInSection
+tableView:heightForHeaderInSection
