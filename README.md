@@ -49,3 +49,15 @@ Description
 A UIRefreshControl object provides a standard control that can be used to initiate the refreshing of a table view’s contents. You link a refresh control to a table through an associated table view controller object. The table view controller handles the work of adding the control to the table’s visual appearance and managing the display of that control in response to appropriate user gestures.
 Note
 Because the refresh control is specifically designed for use in a table view that's managed by a table view controller, using it in a different context can result in undefined behavior.
+
+### Providing Basic Content To a Collection View
+UICollectionViewFlowlayout
+
+### Feeding Custom Cells to Collection Views Using .xib Files
+Add a .xcassets to project: File->New->File, select ‘Asset Catalog’ from Resource tab.
+
+Add UICollectionViewCell subclass: File->New->File, select ‘Cocoa Touch Class’, then give the Class name, and Subclass of. Here is also option to select Language.
+
+let nib = UINib(nibName: "MyCollectionViewCell", bundle: nil)
+collectionView?.register(nib, forCellWithReuseIdentifier: "Cell") 
+these two lines, make the .xib bound to class.
