@@ -61,3 +61,14 @@ Add UICollectionViewCell subclass: File->New->File, select ‘Cocoa Touch Class�
 let nib = UINib(nibName: "MyCollectionViewCell", bundle: nil)
 collectionView?.register(nib, forCellWithReuseIdentifier: "Cell") 
 these two lines, make the .xib bound to class.
+
+### Handling Events in Collection Views
+UICollectionViewCell has a selectedBackgroundView property, To change the selected cell’s background, just set the selectedBackgroundView’s backgroundColor.
+
+collectionView:didSelectItemAt, Tells the delegate that the item at the specified index path was selected.
+
+collectionView:didHighlightItemAt, Tells the delegate that the item at the specified index path was highlighted.
+
+collectionView:didUnhighlightItemAt, Tells the delegate that the highlight was removed from the item at the specified index path.
+
+UIView.animate:withDuration:animations:, Animate changes to one or more views using the specified duration.
