@@ -72,3 +72,8 @@ collectionView:didHighlightItemAt, Tells the delegate that the item at the speci
 collectionView:didUnhighlightItemAt, Tells the delegate that the highlight was removed from the item at the specified index path.
 
 UIView.animate:withDuration:animations:, Animate changes to one or more views using the specified duration.
+
+### Providing Header and Footer in a Collection ViewAdd Header and Footer classes which derive from UICollectionReusableView.
+In ViewController’s init:collectionViewLayout, register collectionView, header and footer.
+In ViewController’s init:coder, set layout’s headerReferenceSize and footerReferenceSize.
+Override collectionView:_collectionView:viewForSupplementaryElementOfKind:at, set header or footer’s properties then return it.
