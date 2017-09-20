@@ -77,3 +77,28 @@ UIView.animate:withDuration:animations:, Animate changes to one or more views us
 In ViewController’s init:collectionViewLayout, register collectionView, header and footer.
 In ViewController’s init:coder, set layout’s headerReferenceSize and footerReferenceSize.
 Override collectionView:_collectionView:viewForSupplementaryElementOfKind:at, set header or footer’s properties then return it.
+
+
+### Adding Custom Interactions to Collection Views
+The iOS API has already added a few gesture recognizers to collection views. So in order to add your own gesture recognizers on top of the existing collection, you first need to make sure that your gesture recognizers will not interfere with the existing ones. To do that, you have to first instantiate your own gesture recognizers and, as explained before, look through the existing array of gesture recognizers on the collection view and call the requireGestureRecognizerToFail: method on the one that is of the same class type of gesture recognizer as the one you are attempting to add to the collection view.    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let pinch = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch))
+        
+        for recognizer in (collectionView?.gestureRecognizers!)!{
+            if recognizer is UIPinchGestureRecognizer{
+                recognizer.require(toFail: pinch)
+            }
+        }
+        
+        collectionView?.addGestureRecognizer(pinch)
+    }
+    
+    func handlePinch(pinch: UIPinchGestureRecognizer){
+        let defaultLayoutItemSize = CGSize(width: 80, height: 120)
+        let layout = collectionView?.collectionViewLayout as! UICollectionViewFlowLayout
+        layout.itemSize =
+            CGSize(width: defaultLayoutItemSize.width * pinch.scale,
+                   height: defaultLayoutItemSize.height * pinch.scale)
+        layout.invalidateLayout()
+    }
