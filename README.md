@@ -102,3 +102,22 @@ The iOS API has already added a few gesture recognizers to collection views. So 
                    height: defaultLayoutItemSize.height * pinch.scale)
         layout.invalidateLayout()
     }
+
+
+## Concurrency and Multitasking
+Grand Central Dispatch, or GCD for short, is a low-level C API that works with block objects. The real use for GCD is to dispatch tasks to multiple cores without making you, the programmer, worry about which core is executing which task. On Mac OS X, mul‐ ticore devices, including laptops, have been available to users for quite some time. With the introduction of multicore devices such as the new iPad, programmers can write amazing multicore-aware multithreaded apps for iOS.
+
+### Performing UI-Related Tasks
+Use the dispatch_get_main_queue function.
+UI-related tasks have to be performed on the main thread, so the main queue is the only candidate for UI task execution in GCD. We can use the dispatch_get_main_queue function to get the handle to the main dispatch queue.The correct way to dispatch tasks to the main queue is by using the dispatch_async function, which executes a block object on a dispatch queue.
+
+        DispatchQueue.main.async{ [weak self] in
+            let alertController = UIAlertController(title: "GCD", message: "GCD is amazing", preferredStyle: .alert)
+            
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            
+            self?.present(alertController, animated: true, completion: nil)
+        }
+
+DispatchQueue.main.async execute a block on the main dispatch queue.
+Thread.current gets the current thread, Thread.main gets the main thread.
