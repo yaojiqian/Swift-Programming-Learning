@@ -110,7 +110,7 @@ Grand Central Dispatch, or GCD for short, is a low-level C API that works with b
 ### Performing UI-Related Tasks
 Use the dispatch_get_main_queue function.
 UI-related tasks have to be performed on the main thread, so the main queue is the only candidate for UI task execution in GCD. We can use the dispatch_get_main_queue function to get the handle to the main dispatch queue.The correct way to dispatch tasks to the main queue is by using the dispatch_async function, which executes a block object on a dispatch queue.
-
+```
         DispatchQueue.main.async{ [weak self] in
             let alertController = UIAlertController(title: "GCD", message: "GCD is amazing", preferredStyle: .alert)
             
@@ -118,6 +118,10 @@ UI-related tasks have to be performed on the main thread, so the main queue is t
             
             self?.present(alertController, animated: true, completion: nil)
         }
+```
 
 DispatchQueue.main.async execute a block on the main dispatch queue.
 Thread.current gets the current thread, Thread.main gets the main thread.
+
+### Performing Non-UI Related Tasks
+For any task that doesn’t involve the UI, you can use global concurrent queues in GCD. These allow either synchronous or asynchronous execution. But synchronous execution does not mean your program waits for the code to finish before continuing. It simply means that the concurrent queue will wait until your task has finished before it continues to the next block of code on the queue. 
