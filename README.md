@@ -126,3 +126,6 @@ UI-related tasks have to be performed on the main thread, so the main queue is t
 ### Performing Non-UI Related Tasks
 For any task that doesn’t involve the UI, you can use **global concurrent queues** in GCD. These allow either *synchronous* or *asynchronous* execution. But synchronous execution does not mean your program waits for the code to finish before continuing. It simply means that the *concurrent queue* will wait until your task has finished before it continues to the next block of code on the queue. 
 
+### Performing Tasks After a Delay
+asyncAfter need a deadline time, not the time interval. So the deadline parameter should be a future time point. example:
+	let deadLine = DispatchTime.now() + DispatchTimeInterval.seconds(10)
