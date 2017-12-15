@@ -157,4 +157,16 @@ To receive the notification from task group, call the task group’s notify meth
             
             self!.present(alertController, animated:true, completion:nil)
         })
-    }
+
+### Creating Simple Concurrency with Operations
+define a subclass of Operation, override the main method. create a object of this Operation and create OperationQueue, then add the operation to the operationQueue.
+
+Here found that the current thread is different from main thread:
+count:3
+current thread:<NSThread: **0x60000026b7c0**>{number = 3, name = (null)}
+main thread:<NSThread: **0x6000002636c0**>{number = 1, name = (null)}
+
+Another way to work with operation is using **BlockOperation** class instead of creating subclass of Operation.
+
+maxConcurrentOperationCount - readable and writable
+
