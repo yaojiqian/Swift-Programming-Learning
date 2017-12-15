@@ -129,3 +129,32 @@ For any task that doesn’t involve the UI, you can use **global concurrent queu
 ### Performing Tasks After a Delay
 asyncAfter need a deadline time, not the time interval. So the deadline parameter should be a future time point. example:
 	let deadLine = DispatchTime.now() + DispatchTimeInterval.seconds(10)
+
+### Performing a Task Only Once
+Dispatch Once is replaced with global or static constants and variables.
+
+### Grouping Tasks Together
+Use DispatchGroup() to create a task group. Then indicates the task group while call DispatchQueue’s async as the first parameter.
+To receive the notification from task group, call the task group’s notify method.
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        let taskGroup = DispatchGroup()
+        let mainQueue = DispatchQueue.main
+        
+        /* Reload the table view on the main queue */
+        mainQueue.async(group: taskGroup, execute: {[weak self] in self!.reloadTableView() })
+        /* Reload the scroll view on the main queue */
+        mainQueue.async(group: taskGroup, execute: {[weak self] in self!.reloadScrollView()})
+        /* Reload the image view on the main queue */
+        mainQueue.async(group: taskGroup, execute: {[weak self] in self!.reloadImageView() })
+        
+        /* When we are done, dispatch the following block */
+        taskGroup.notify(queue: mainQueue, execute: {[weak self] in
+            let alertController = UIAlertController(title: "task group", message: "all task have done!", preferredStyle: .alert)
+            
+            alertController.addAction(UIAlertAction(title:"OK", style:.default, handler: nil))
+            
+            self!.present(alertController, animated:true, completion:nil)
+        })
+    }
