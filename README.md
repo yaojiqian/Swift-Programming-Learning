@@ -170,3 +170,29 @@ Another way to work with operation is using **BlockOperation** class instead of 
 
 maxConcurrentOperationCount - readable and writable
 
+### Creating Dependency Between Operations
+If operation B has to wait for operation A before it can run the task associated with it, operation B has to add operation A as its dependency using the **addDependency**: in‐ stance method of Operation.
+
+        let firstNumber = 111
+        let secondNumber  = 222
+        
+        let firstOperation = BlockOperation(block: {[weak self] in
+            if let strongSelf = self{
+                strongSelf.firstOperationEntry(param: firstNumber as AnyObject)
+            }
+        })
+        
+        let secondOperation = BlockOperation(block: {[weak self] in
+            if let strongSelf = self{
+                strongSelf.secondOperationEntry(param: secondNumber as AnyObject)
+            }
+        })
+        
+        let operationQueue = OperationQueue()
+        
+        firstOperation.addDependency(secondOperation)
+        
+        operationQueue.addOperation(firstOperation)
+        operationQueue.addOperation(secondOperation)
+
+
