@@ -199,3 +199,6 @@ If operation B has to wait for operation A before it can run the task associated
 ### Firing Periodic Tasks
 Once a timer is created and added to a run loop, you can stop and release that timer using the invalidate instance method of the NSTim er class. This not only releases the timer, but also the object, if any, that was passed for the timer to retain during its lifetime (e.g., the object passed to the userInfo parameter of the scheduledTimer WithTimeInterval:target:selector:userInfo:repeats: class method of Timer). If you pass false to the repeats parameter, the timer invalidates itself after the first pass and subsequently releases the object it had retained (if one exists).
 
+### Completing a Long-Running Task in the Background
+When an iOS application is sent to the background, its main thread is paused. The threads you create within your application are also suspended. 
+To borrow some rime from iOS, the **beginBackgroundTaskWithName:expirationHandler:** instance method of UIApplication must be called.
