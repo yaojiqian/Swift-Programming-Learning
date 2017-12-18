@@ -215,4 +215,7 @@ NotificationCenter.default.addObserver(self, selector: #selector(handleNewsItems
 
 
 
+### Handling Location Changes in the Background
+CLLocationManager telling you when iOS detects that the device is at a new location. 
 
+### Handling Network Connections in the Background
