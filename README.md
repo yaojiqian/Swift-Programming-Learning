@@ -202,3 +202,11 @@ Once a timer is created and added to a run loop, you can stop and release that t
 ### Completing a Long-Running Task in the Background
 When an iOS application is sent to the background, its main thread is paused. The threads you create within your application are also suspended. 
 To borrow some rime from iOS, the **beginBackgroundTaskWithName:expirationHandler:** instance method of UIApplication must be called.
+
+
+### Adding Background Fetch Capabilities to Your Apps
+go to the Capabilities tab of the project settings, and under the Background Modes slice, enable the **“Background fetch”** item
+
+call setMinimumBackgroundFetchInterval to ask iOS to wake up your app in the background and ask it to fetch new data. 
+implement the application:performFetch WithCompletionHandler: instance method of your app delegate.
+NotificationCenter.default.addObserver(self, selector: #selector(handleNewsItemsChanged), name: NSNotification.Name(rawValue: AppDelegate.newsItemsChangedNotification()), object: nil), register NotificationCenter Observer.
