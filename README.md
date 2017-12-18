@@ -210,3 +210,9 @@ go to the Capabilities tab of the project settings, and under the Background Mod
 call setMinimumBackgroundFetchInterval to ask iOS to wake up your app in the background and ask it to fetch new data. 
 implement the application:performFetch WithCompletionHandler: instance method of your app delegate.
 NotificationCenter.default.addObserver(self, selector: #selector(handleNewsItemsChanged), name: NSNotification.Name(rawValue: AppDelegate.newsItemsChangedNotification()), object: nil), register NotificationCenter Observer.
+
+### Playing Audio in the Background
+
+
+
+
