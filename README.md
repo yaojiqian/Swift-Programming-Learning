@@ -219,3 +219,26 @@ NotificationCenter.default.addObserver(self, selector: #selector(handleNewsItems
 CLLocationManager telling you when iOS detects that the device is at a new location. 
 
 ### Handling Network Connections in the Background
+
+
+## Security
+
+### Authenticating the User with Touch ID
+Use the **LocalAuthentication** framework in your application.
+LAContext’s canEvaluatePolicy to check the availability of Touch ID.
+evaluatePolicy:localize dReason:reply:
+
+## Core Location, iBeacon, and Maps
+The Core Location and Map Kit frameworks can be used to create location-aware and map-based applications. The Core Location framework uses the device’s internal hard‐ ware to determine the current location of the device. The Map Kit framework enables your application to display maps to your users, put custom annotations on the maps, and so on. 
+
+### Detecting Which Floor the User Is on in a Building
+
+        manager = CLLocationManager()
+        manager.delegate = self
+        manager.requestAlwaysAuthorization()
+        manager.desiredAccuracy = kCLLocationAccuracyBest
+        manager.startUpdatingLocation()
+
+Implements the CLLocationManagerDelegate’s func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+
+Info.plist add Privacy - Location Always Usage Description (NSLocationAlwaysUsageDescription)
