@@ -242,3 +242,9 @@ The Core Location and Map Kit frameworks can be used to create location-aware an
 Implements the CLLocationManagerDelegate’s func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
 
 Info.plist add Privacy - Location Always Usage Description (NSLocationAlwaysUsageDescription)
+
+### Defining and Processing iBeacons
+use the CBPeripheralManager class to ensure that Bluetooth is turned on.
+Source app implements CBPeripheralManagerDelegate.
+Destination app implements CLLocationManagerDelegate.
+
