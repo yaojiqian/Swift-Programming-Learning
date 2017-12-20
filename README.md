@@ -276,5 +276,6 @@ Destination app implements CLLocationManagerDelegate.
             }
         }
 
-
+### Displaying Pins on a Map View
+1. Create a new class, subclassing NSObject, and call it MyAnnotation.2. Make sure this class conforms to the MKAnnotation protocol.3. Define a property for this class of type CLLocationCoordinate2D and name it coordinate. Make sure you set it as a readonly property because the coordinate property is defined as readonly in the MKAnnotation protocol.4. Optionally, define two properties of type NSString, namely title and subtitle, which can carry the title and the subtitle information for your annotation view. Both of these properties are readonly as well.5. Create an constructor method for your class that accepts a parameter of type CLLocationCoordinate2D. In this method, assign the passed location parameter to the property that we defined in step 3. Because this property is readonly, it cannot be assigned by code outside the scope of this class. Therefore, the constructor of this class acts as a bridge here and allows us to indirectly assign a value to this property. We will do the same thing for the title and subtitle properties.6. Instantiate the MyAnnotation class and add it to your map using the addAnnotation: method of the MKMapView class.
 
