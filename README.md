@@ -248,3 +248,33 @@ use the CBPeripheralManager class to ensure that Bluetooth is turned on.
 Source app implements CBPeripheralManagerDelegate.
 Destination app implements CLLocationManagerDelegate.
 
+### Pinpointing the Location of a Device
+
+	/* Are location services available on this device? */
+        if CLLocationManager.locationServicesEnabled() {
+            
+            /* Do we have authorization to access location services? */
+            switch CLLocationManager.authorizationStatus() {
+            case .authorizedAlways:
+                /* Yes, always. */
+                createLocationManager(startImmediately: true)
+            case .authorizedWhenInUse:
+                /* Yes, only when our app is in use. */
+                createLocationManager(startImmediately: true)
+            case .denied:
+                /* No. */
+                displayAlertWithTitle(title: "Not Determined", message: "Location services are not allowed for this app")
+            case .notDetermined:
+                /* We don't know yet; we have to ask */
+                createLocationManager(startImmediately: false)
+                if let manager = locationManager {
+                    manager.requestWhenInUseAuthorization()
+                }
+            case .restricted:
+                /* Restrictions have been applied; we have no access to location services. */
+                displayAlertWithTitle(title: "Restricted",  message: "Location services are not allowed for this app")
+            }
+        }
+
+
+
