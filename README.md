@@ -294,3 +294,31 @@ To display the Custom Image, should create a new MKAnnotatioView object instead 
         }else{
             annotationView!.pinTintColor = senderAnnotation.pinColor?.toPinColor()
         }
+
+### Searching on a Map View
+MKLocalSearchRequest, MKLocalSearch, MKLocalSearchResponse.
+mapView:didFailToLocateUserWithError:
+mapView:didUpdateUserLocation:
+MKMapItem
+	
+    func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
+        
+        let request = MKLocalSearchRequest()
+        request.naturalLanguageQuery = "restaurant"
+        
+        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        request.region = MKCoordinateRegion(center: (userLocation.location?.coordinate)!, span: span)
+        
+        let search = MKLocalSearch(request: request)
+        search.start(completionHandler: {
+            (response: MKLocalSearchResponse?, error: Error?) in
+            for item in (response?.mapItems)! {
+                print("item name = \(item.name ?? " ")")
+                print("Item phone number = \(item.phoneNumber ?? " ")")
+                print("Item url = \(String(describing: item.url))")
+                print("Item location = \(String(describing: item.placemark.location))")
+            }
+        } )
+    }
+
+

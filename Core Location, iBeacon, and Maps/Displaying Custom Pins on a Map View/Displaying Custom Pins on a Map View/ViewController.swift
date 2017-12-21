@@ -27,13 +27,13 @@ class ViewController: UIViewController, MKMapViewDelegate {
     
     func addPinToMapView(){
         /* These are just sample locations */
-        let purpleLocation = CLLocationCoordinate2D(latitude: 39.474101, longitude: 116.301005)
+        let purpleLocation = CLLocationCoordinate2D(latitude: 31.218420, longitude: 121.496459)
         
-        let blueLocation = CLLocationCoordinate2D(latitude: 39.475110, longitude: 116.301015)
+        let blueLocation = CLLocationCoordinate2D(latitude: 31.218310, longitude: 121.496554)
         
-        let redLocation = CLLocationCoordinate2D(latitude: 39.474113, longitude: 116.302018)
+        let redLocation = CLLocationCoordinate2D(latitude: 31.218513, longitude: 121.496364)
         
-        let greenLocation = CLLocationCoordinate2D(latitude: 39.473116, longitude: 116.301017)
+        let greenLocation = CLLocationCoordinate2D(latitude: 31.218416, longitude: 121.496650)
         
         /* Create the annotations using the location */
         let purpleAnnotation = MyAnnotation(coordinate: purpleLocation, title: "Purple", subtitle: "PIN", pinColor: .Purple)
