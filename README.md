@@ -322,3 +322,11 @@ MKMapItem
     }
 
 
+### Displaying Directions on the Map
+Directions to walk or drive can be displayed only in the Maps app on a device, so you cannot display them inside an instance of a map view in your app. 
+MKDirections, calculateDirectionsWithCompletionHandler: , MKDirectionsResponse
+
+	/* Get the directions */	let directions = MKDirections(request: request)
+	directions.calculateDirectionsWithCompletionHandler{		(response: MKDirectionsResponse!, error: NSError!) in          /* You can manually parse the response, but in          here we will take a shortcut and use the Maps app          to display our source and          destination. We didn't have to make this API call at all,          as we already had the map items before, but this is to          demonstrate that the directions response contains more          information than just the source and the destination. */          /* Display the directions on the Maps app */
+	let launchOptions = [ MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving]
+	MKMapItem.openMapsWithItems(            [response.source, response.destination],            launchOptions: launchOptions)
