@@ -330,3 +330,7 @@ MKDirections, calculateDirectionsWithCompletionHandler: , MKDirectionsResponse
 	directions.calculateDirectionsWithCompletionHandler{		(response: MKDirectionsResponse!, error: NSError!) in          /* You can manually parse the response, but in          here we will take a shortcut and use the Maps app          to display our source and          destination. We didn't have to make this API call at all,          as we already had the map items before, but this is to          demonstrate that the directions response contains more          information than just the source and the destination. */          /* Display the directions on the Maps app */
 	let launchOptions = [ MKLaunchOptionsDirectionsModeKey:MKLaunchOptionsDirectionsModeDriving]
 	MKMapItem.openMapsWithItems(            [response.source, response.destination],            launchOptions: launchOptions)
+
+
+### Customizing the View of the Map with a Camera
+locationManager is required.
