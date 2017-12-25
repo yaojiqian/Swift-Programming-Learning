@@ -334,3 +334,19 @@ MKDirections, calculateDirectionsWithCompletionHandler: , MKDirectionsResponse
 
 ### Customizing the View of the Map with a Camera
 locationManager is required.
+
+## Gesture Recognizers
+Gestures are a combination of touch events. Gesture recognizers are divided into two categories: discrete and continuous. Discrete gesture recognizers detect their gesture events and, when detected, call a method in their respective owners. Continuous gesture recognizers keep their owner objects informed of the events as they happen and call the method in their target object repeatedly as the event happens and until it ends.
+	• Swipe	• Rotation	• Pinch	• Pan	• Long-press 
+	• Tap
+
+The basic framework for handling a gesture through a built-in gesture recognizer is as follows:
+	1. Create an object of the right data type for the gesture recognizer you want.	2. Add this object as a gesture recognizer to the view that will receive the gesture.	3. Write a method that is called when the gesture occurs and that takes the action you want.
+The method associated as the target method of any gesture recognizer must follow these rules:	• It must return void.	• It must either accept no parameters, or accept a single parameter of type UIGestureRecognizer in which the system passes the gesture recognizer that calls this method.
+
+Discrete gesture recognizers can pass through the following states:1. UIGestureRecognizerStatePossible 2. UIGestureRecognizerStateRecognized 3. UIGestureRecognizerStateFailed
+
+Continuous gesture recognizers take a different path in the states they send to their targets:1. UIGestureRecognizerStatePossible 2. UIGestureRecognizerStateBegan 3. UIGestureRecognizerStateChanged 4. UIGestureRecognizerStateEnded 5. UIGestureRecognizerStateFailed
+
+### Detecting Swipe Gestures
+One UISwipeGestureRecognizer object can only recognize one direction swipe. so if want to two direction swipes, should create two UISwipeGestureRecognizers.
