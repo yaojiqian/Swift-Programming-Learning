@@ -13,6 +13,9 @@ class ViewController: UIViewController {
     var longPressGestureRecognizer : UILongPressGestureRecognizer!
     var dummyButton : UIButton!
     
+    /* Detecting Tap Gestures */
+    var tapGestureRecognizer : UITapGestureRecognizer!
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -31,6 +34,12 @@ class ViewController: UIViewController {
         
         /* The user must press 2 fingers (numberOfTouchesRequired) for at least 1 second for the gesture to be recognized */
         longPressGestureRecognizer.minimumPressDuration = 1
+        
+        /* Detecting Tap Gestures */
+        tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTaps))
+        
+        tapGestureRecognizer.numberOfTouchesRequired = 2
+        
     }
     
     func handleLongPressGesture(gesture : UILongPressGestureRecognizer){
@@ -57,6 +66,13 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    func handleTaps(sender: UITapGestureRecognizer){
+        for touchCounter in 0..<sender.numberOfTouchesRequired{
+            let touchPoint = sender.location(ofTouch: touchCounter, in: sender.view)
+            print("Touch \(touchCounter + 1): \(touchPoint)")
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,6 +82,9 @@ class ViewController: UIViewController {
         
         /* Add this gesture recognizer to our view */
         view.addGestureRecognizer(longPressGestureRecognizer)
+        
+        /* Detecting Tap Gestures */
+        view.addGestureRecognizer(tapGestureRecognizer)
     }
 
     override func didReceiveMemoryWarning() {

@@ -371,5 +371,5 @@ UIRotationGestureRecognizer
 
 ### Detecting Long Press Gestures
 
-
+### Detecting Tap Gestures
 
