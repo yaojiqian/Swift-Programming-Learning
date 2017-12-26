@@ -375,3 +375,7 @@ UIRotationGestureRecognizer
 
 ### Detecting Pinch Gestures
 
+### Detecting Screen Edge Pan Gestures
+
+
+

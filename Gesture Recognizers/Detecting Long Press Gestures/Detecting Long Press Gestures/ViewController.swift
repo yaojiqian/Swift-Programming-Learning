@@ -21,6 +21,9 @@ class ViewController: UIViewController {
     var pinchGestureRecognizer : UIPinchGestureRecognizer!
     var currentScale = 0.0 as CGFloat
     
+    /* Detecting Screen Edge Pan Gestures */
+    var screenEdgePanRecognizer : UIScreenEdgePanGestureRecognizer!
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -54,6 +57,11 @@ class ViewController: UIViewController {
         
         /* Create the Pinch Gesture Recognizer */
         pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch))
+        
+        /* Detecting Screen Edge Pan Gestures */
+        screenEdgePanRecognizer = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(handleScreenEdgePan))
+        /* Detect pans from left edge to the inside of the view */
+        screenEdgePanRecognizer.edges = .left
         
     }
     
@@ -100,6 +108,15 @@ class ViewController: UIViewController {
         }
     }
     
+    func handleScreenEdgePan(sender: UIScreenEdgePanGestureRecognizer){
+        if sender.state == .ended{
+            let alertController = UIAlertController(title: "Detected", message: "Screen edge swipe is detected", preferredStyle: .alert)
+            
+            alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alertController, animated: true)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -116,6 +133,9 @@ class ViewController: UIViewController {
         myBlackLabel.center = view.center
         view.addSubview(myBlackLabel)
         myBlackLabel.addGestureRecognizer(pinchGestureRecognizer)
+        
+        /* Detecting Screen Edge Pan Gestures */
+        view.addGestureRecognizer(screenEdgePanRecognizer)
     }
 
     override func didReceiveMemoryWarning() {
