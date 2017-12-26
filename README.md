@@ -368,3 +368,8 @@ UIRotationGestureRecognizer
 
 ### Detecting Panning and Dragging Gestures
 
+
+### Detecting Long Press Gestures
+
+
+
