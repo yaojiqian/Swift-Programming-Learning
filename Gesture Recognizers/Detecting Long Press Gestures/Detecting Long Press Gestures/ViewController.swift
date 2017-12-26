@@ -16,6 +16,11 @@ class ViewController: UIViewController {
     /* Detecting Tap Gestures */
     var tapGestureRecognizer : UITapGestureRecognizer!
     
+    /* Detecting Pinch Gestures */
+    var myBlackLabel : UILabel!
+    var pinchGestureRecognizer : UIPinchGestureRecognizer!
+    var currentScale = 0.0 as CGFloat
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
@@ -39,6 +44,16 @@ class ViewController: UIViewController {
         tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTaps))
         
         tapGestureRecognizer.numberOfTouchesRequired = 2
+        
+        /* Detecting Pinch Gestures */
+        let labelRect = CGRect(x: 0, y: 0, width: 200, height: 200)
+        myBlackLabel = UILabel(frame: labelRect)
+        myBlackLabel.backgroundColor = UIColor.black
+        /* Without this line, our pinch gesture recognizer will not work */
+        myBlackLabel.isUserInteractionEnabled = true
+        
+        /* Create the Pinch Gesture Recognizer */
+        pinchGestureRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(handlePinch))
         
     }
     
@@ -74,6 +89,17 @@ class ViewController: UIViewController {
         }
     }
 
+    func handlePinch(gesture : UIPinchGestureRecognizer){
+        if gesture.state == .ended{
+            currentScale = gesture.scale
+        } else if gesture.state == .began && currentScale != 0.0{
+            gesture.scale = currentScale
+        }
+        if gesture.scale != CGFloat.nan && gesture.scale != 0.0{
+            gesture.view!.transform = CGAffineTransform.init(scaleX: gesture.scale, y: gesture.scale)
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -85,6 +111,11 @@ class ViewController: UIViewController {
         
         /* Detecting Tap Gestures */
         view.addGestureRecognizer(tapGestureRecognizer)
+        
+        /* Pinch Gesture Recognizer */
+        myBlackLabel.center = view.center
+        view.addSubview(myBlackLabel)
+        myBlackLabel.addGestureRecognizer(pinchGestureRecognizer)
     }
 
     override func didReceiveMemoryWarning() {

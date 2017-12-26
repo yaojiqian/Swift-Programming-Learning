@@ -373,3 +373,5 @@ UIRotationGestureRecognizer
 
 ### Detecting Tap Gestures
 
+### Detecting Pinch Gestures
+
