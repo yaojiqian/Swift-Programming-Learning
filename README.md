@@ -350,3 +350,20 @@ Continuous gesture recognizers take a different path in the states they send to 
 
 ### Detecting Swipe Gestures
 One UISwipeGestureRecognizer object can only recognize one direction swipe. so if want to two direction swipes, should create two UISwipeGestureRecognizers.
+.direction
+.numberOfTouchesRequired
+
+### Detecting Rotation Gestures
+UIRotationGestureRecognizer
+
+    func handleRotation(recognizer : UIRotationGestureRecognizer){
+        /* Take the previous rotation and add the current rotation to it */
+        helloWorldLabel.transform = CGAffineTransform(rotationAngle: rotationAngleInRadians + recognizer.rotation)
+        
+        /* At the end of the rotation, keep the angle for later use */
+        if recognizer.state == .ended{
+            rotationAngleInRadians += recognizer.rotation
+        }        
+    }
+
+
