@@ -383,3 +383,5 @@ UIRotationGestureRecognizer
 ### Downloading Data Using NSURLSession
 the **NSURLSessionConfiguration** class configures session. **NSURLSessionDelegate**, **NSURLSession** and **NSURLSessionDataTask** or **NSURLSessionDownTask** work together to download data.
 Bear in mind that after every task that you create with a URL session, you need to call the **resume** method on that task to start it.
+
+session.downloadTask(with:, completionHandler:), download the file and save to cache file.
