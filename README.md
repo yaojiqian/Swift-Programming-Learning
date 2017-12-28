@@ -390,3 +390,14 @@ session.downloadTask(with:, completionHandler:), download the file and save to c
 URLSessionDelegate, URLSessionDataDelegate
 func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data)
 func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?)
+
+
+### Downloading Data in the Background Using URLSession
+
+Data tasks do not support downloading content while your app is in the background. 
+a system process handles the work.
+This configuration has to have an **identifier** that you can use to resume a broken download later.
+We can get to know when there is incoming data using the **URLSession:download Task:didWriteData:totalBytesWritten:totalBytesExpectedToWrite:** delegate method of our session delegate.
+We also want to know when the downloading process has finished, so let’s implement the **URLSession:didCompleteWithError:** delegate method.
+If the download task succeeds, it saves the downloaded data to disk and gives us the URL back.
+URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL)
