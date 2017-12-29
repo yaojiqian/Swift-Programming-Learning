@@ -401,3 +401,28 @@ We can get to know when there is incoming data using the **URLSession:download T
 We also want to know when the downloading process has finished, so let’s implement the **URLSession:didCompleteWithError:** delegate method.
 If the download task succeeds, it saves the downloaded data to disk and gives us the URL back.
 URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFinishDownloadingToURL location: NSURL)
+
+
+### Uploading Data Using URLSession
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        /* Now attempt to upload to the following URL */
+        
+        let dataToUpload = "name=Ravi&loc=India&age=31".data(using: String.Encoding.utf8, allowLossyConversion: false)
+        //let dataToUpload = "Hello World".data(using: String.Encoding.utf8, allowLossyConversion: false)
+        
+        let url = URL(string : "http://posttestserver.com/post.php")
+        var request = URLRequest(url: url!)
+        //let request = NSMutableURLRequest(url: url!)
+        request.httpMethod = "POST"
+        //request.addValue("Hello", forHTTPHeaderField: "aaa")
+        //request.addValue("world", forHTTPHeaderField: "bbb")
+        print(request.debugDescription)
+        
+        let task = session.uploadTask(with: request as URLRequest, from: dataToUpload!)
+        
+        task.resume()
+    }
+
