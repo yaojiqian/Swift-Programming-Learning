@@ -426,3 +426,10 @@ URLSession(session: NSURLSession, downloadTask: NSURLSessionDownloadTask, didFin
         task.resume()
     }
 
+
+### Downloading Asynchronously with URLConnection
+
+In order to create an asynchronous connection, we need to do the following:1. Have our URL in an instance of String.2. Convert our string to an instance of URL.3. Place our URL in a URL Request of type URLRequest, or in the case of mutable URLs, in an instance of MutableURLRequest.4. Create an instance of URLConnection and pass the URL request to it.
+
+**sendAsynchronousRequest was deprecated**
+
