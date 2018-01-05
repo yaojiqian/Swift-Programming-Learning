@@ -433,3 +433,16 @@ In order to create an asynchronous connection, we need to do the following:1. H
 
 **sendAsynchronousRequest was deprecated**
 
+
+## Multimedia
+
+import AVFoundation 
+import MediaPlayer
+
+### Playing Audio Files
+
+load data from file.
+init AVAudioPlayer:data
+AVAudioPlayer, prepareToPlay, play
+
+add AVAudioPlayerDelegate, implement audioPlayerDidFinishPlaying
