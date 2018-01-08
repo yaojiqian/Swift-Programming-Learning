@@ -446,3 +446,7 @@ init AVAudioPlayer:data
 AVAudioPlayer, prepareToPlay, play
 
 add AVAudioPlayerDelegate, implement audioPlayerDidFinishPlaying
+
+### Recording Audio
+
+AVAudioRecorder to record audio.
