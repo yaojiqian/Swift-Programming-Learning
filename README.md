@@ -450,3 +450,7 @@ add AVAudioPlayerDelegate, implement audioPlayerDidFinishPlaying
 ### Recording Audio
 
 AVAudioRecorder to record audio.
+
+### Playing Video
+
+To enable users to play videos containing MPMediaItem objects, use AVPlayer. You cannot play video media items using the MediaPlayer framework.
